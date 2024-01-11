@@ -32,5 +32,4 @@ Go ahead and fork this repository. Then clone it to your local machine. Then ope
 Once you are done with the code run the `main.py` file and see if it works. If it does not work then you have to fix it. If it works then you are good to go.
 
 ## If you dont know Git/Github
-
-### Learn it Bruh
+[![Learn It](https://media1.tenor.com/m/q2eL6vNVKf4AAAAC/bhai-kya-kar-raha-hai-tu-ashneer-grover.gif)](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
