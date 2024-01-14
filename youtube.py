@@ -1,14 +1,12 @@
 import pytube
-import os
 
-def download(url, download_path):
+
+def download(url, path):
     try:
         youtube = pytube.YouTube(url)
         video = youtube.streams.get_highest_resolution()
         
-        video.download(download_path)
+        video.download(path)
         return 1
     except:
         return 0
-
-
