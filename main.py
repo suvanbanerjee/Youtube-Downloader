@@ -2,42 +2,37 @@ import PySimpleGUI as sg
 import pathlib
 from youtube import *
 
-
-sg.theme("DarkBlue3")  # Make it according to your choice
+sg.theme("DarkBlue3")
 
 layout = [
     [sg.Text("Enter the URL of the YouTube video you want to download")],
     [sg.InputText()],
-    [sg.Text("Enter the path where you want to save the video")],
-    [sg.InputText()],
-    [sg.Button("Ok"), sg.Button("Cancel")]
-] # This is the layout of the GUI if you want to change it, go ahead
-
+    [sg.Text("Select the folder where you want to save the video")],
+    [sg.InputText(key="-PATH-"), sg.FolderBrowse()],
+    [sg.Button("Download"), sg.Button("Cancel")]
+]
 
 def main():
-    '''
-    this is the main function in python the concept of main function is not there
-    but it is a good practice to write the main function
-    '''
     window = sg.Window("YouTube Downloader", layout)
     while True:
         event, values = window.read()
-        if event == "Ok":
+        if event == sg.WIN_CLOSED or event == "Cancel":
+            break
+        elif event == "Download":
             url = values[0]
-            path = values[1]
+            path = values["-PATH-"]
 
             pathlib.Path(path).mkdir(parents=True, exist_ok=True)
             flag = download(url, path)
-            if flag == -1:
-                sg.popup("Error in downloading!")
-            elif flag == 0:
-                sg.popup("Video not found!")
-        elif event == sg.WINDOW_CLOSED or event == "Cancel":
-                window.close()
-                break
 
+            if flag == -1:
+                sg.popup_error("Error in downloading!")
+            elif flag == 0:
+                sg.popup_error("Video not found!")
+            else:
+                sg.popup("Download complete!")
+
+    window.close()
 
 if __name__ == "__main__":
-    """if the file is run directly then the __name__ variable is set to __main__
-    if the file is imported then the __name__ variable is set to the name of the file"""
-    main() # Main function is called here
+    main()
