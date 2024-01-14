@@ -30,9 +30,11 @@ def main():
             flag = download(url, path)
             if flag == -1:
                 sg.popup("Error in downloading!")
-            else:
-                sg.popup("Downloaded!")
-            break
+            elif flag == 0:
+                sg.popup("Video not found!")
+        elif event == sg.WINDOW_CLOSED or event == "Cancel":
+                window.close()
+                break
 
 
 if __name__ == "__main__":
