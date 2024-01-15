@@ -1,6 +1,6 @@
 import PySimpleGUI as sg
-import pathlib
-from youtube import *
+from pathlib import Path
+from youtube import download
 
 sg.LOOK_AND_FEEL_TABLE['YouTube'] = \
 {'BACKGROUND': '#FFFFFF', 
@@ -15,7 +15,7 @@ sg.LOOK_AND_FEEL_TABLE['YouTube'] = \
 sg.theme('YouTube') 
 
 layout = [
-    [sg.Image("logo.png", size=(400, 200),subsample=5,)],
+    [sg.Image(str(Path(__file__).parent.joinpath("logo.png")), size=(400, 200),subsample=5,)],
     [sg.Text("Enter the URL of the YouTube video you want to Download", font=("Impact", 12))],
     [sg.InputText()],
     [sg.Text("Select the folder where you want to save the video", font=("Impact", 12))],
@@ -37,7 +37,7 @@ def main():
         elif event == "Download":
             url = values[1]
             path = values["-PATH-"]
-            pathlib.Path(path).mkdir(parents=True, exist_ok=True)
+            Path(path).mkdir(parents=True, exist_ok=True)
             flag = download(url, path)
             if flag == -1:
                 sg.popup_error("Error in downloading!")
