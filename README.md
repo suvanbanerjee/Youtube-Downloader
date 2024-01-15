@@ -33,8 +33,16 @@ Go ahead and fork this repository. Then clone it to your local machine. Then ope
 Once you are done with the code run the `main.py` file and see if it works. If it does not work then you have to fix it. If it works then you are good to go.
 
 ## How to Run the project?
-Just dobule click the `main.pyw` file and it will run. If it does not run then depending on you OS you can run it from either launch.bat or launch.sh file. for Windows run the `launch.bat` file and for Linux/Mac run the `launch.sh` file.
+Just dobule click the `main.pyw` 
+
+`.pyw` file is a Python script that runs without opening a console window, typically used for GUI applications or background tasks.
+
+If it does not run then depending on you OS you can run it from either launch.bat or launch.sh file.
+- Windows Users run the `launch.bat` file
+- Linux/Mac Peps run the `launch.sh` file and remember to give it executable permissions.(Using `chmod +x launch.sh`)
+
 Make sure to install the prerequisites before running the project.
+
 
 ## If you dont know Git/Github
 [![Learn It](https://media1.tenor.com/m/q2eL6vNVKf4AAAAC/bhai-kya-kar-raha-hai-tu-ashneer-grover.gif)](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
