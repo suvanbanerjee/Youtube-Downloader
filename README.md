@@ -32,5 +32,9 @@ I have made the GUI for you so you don't have to worry about it. Your task is to
 Go ahead and fork this repository. Then clone it to your local machine. Then open the project in your IDE. Then open the `youtube.py` file and start writing the code.
 Once you are done with the code run the `main.py` file and see if it works. If it does not work then you have to fix it. If it works then you are good to go.
 
+## How to Run the project?
+Just dobule click the `main.pyw` file and it will run. If it does not run then depending on you OS you can run it from either launch.bat or launch.sh file. for Windows run the `launch.bat` file and for Linux/Mac run the `launch.sh` file.
+Make sure to install the prerequisites before running the project.
+
 ## If you dont know Git/Github
 [![Learn It](https://media1.tenor.com/m/q2eL6vNVKf4AAAAC/bhai-kya-kar-raha-hai-tu-ashneer-grover.gif)](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
