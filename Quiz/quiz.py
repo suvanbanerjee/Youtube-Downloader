@@ -4,8 +4,8 @@ import sys as system
 
 sg.theme('LightGrey1')
 
-participants=open("C:/Users/ASUS/OneDrive/Desktop/PYTHON/Youtube-downloader/Quiz/participants.csv","r")
-questions=open("C:/Users/ASUS/OneDrive/Desktop/PYTHON/Youtube-downloader/Quiz/questions.csv","r")
+participants=open("./participants.csv","r")
+questions=open("./questions.csv","r")
 participants = participants.read().split("\n")
 questions = questions.read().split("\n")
 
