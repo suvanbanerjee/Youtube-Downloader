@@ -13,11 +13,13 @@ sg.LOOK_AND_FEEL_TABLE['YouTube'] = \
 'BORDER': 1, 'SLIDER_DEPTH': 0,  
 'PROGRESS_DEPTH': 0 } 
 sg.theme('YouTube') 
-
+selection = ["High", "Medium", "Low"]
 layout = [
     [sg.Image(str(Path(__file__).parent.joinpath("logo.png")), size=(400, 200),subsample=5,)],
-    [sg.Text("Enter the URL of the YouTube video you want to Download", font=("Impact", 12))],
+    [sg.Text("Enter the URL of the YouTube video/playlist you want to Download", font=("Impact", 12))],
     [sg.InputText()],
+    [sg.Text("Select Video Quality", font=("Impact",12))],
+    [sg.Combo(selection, size=(10, 10), key='-COMBO-')],
     [sg.Text("Select the folder where you want to save the video", font=("Impact", 12))],
     [sg.InputText(key="-PATH-"), sg.FolderBrowse()],
     [sg.Text("\n")],
