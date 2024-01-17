@@ -1,36 +1,18 @@
 # YouTube Downloader
 [![yt](https://www.freeiconspng.com/uploads/elegant-youtube-logo-12.png)](https://www.youtube.com)
 
-Hello there so you have decided you want to do something apart from you college syllabus. Thats good now you task is to help me complete this project. 
+Hello there just a simple project that can download videos or playlist from YouTube. This project is made using Python.
 
-## Prerequisites
+## Dependencies
 
-Before starting the project make sure you have the following installed:
-- Python (Ofcourse)
-- PyTube (A Python library to deal with YouTube)
-- PySimpleGUI (A Python library to create GUIs)
-- Brain (A human brain to understand the code)
+To install the prerequisites run the following command in your terminal
 
-to install the libraries run the following command:
-```pip install pytube```
-```pip install PySimpleGUI```
+```pip install -r requirements.txt```
 
-Don't do this:
-```pip install brain```
+Dependencies
+- pytube
+- PySimpleGUI
 
-## Whats in the box?
-
-The project contains the following files:
-- `main.py` - The main script
-- `README.md` - This file you are reading now
-- `youtueb.py` - A file that contains the code you need to build
-
-I have made the GUI for you so you don't have to worry about it. Your task is to write the code that downloads the video. Please don't use Notepad(for god sake). Use a proper IDE like VSCode or PyCharm.
-
-## How to start the project?
-
-Go ahead and fork this repository. Then clone it to your local machine. Then open the project in your IDE. Then open the `youtube.py` file and start writing the code.
-Once you are done with the code run the `main.py` file and see if it works. If it does not work then you have to fix it. If it works then you are good to go.
 
 ## How to Run the project?
 Just dobule click the `main.pyw` 
@@ -43,6 +25,16 @@ If it does not run then depending on you OS you can run it from either launch.ba
 
 Make sure to install the prerequisites before running the project.
 
+## Screenshot
+![Screenshot](image.png)
 
-## If you dont know Git/Github
-[![Learn It](https://media1.tenor.com/m/q2eL6vNVKf4AAAAC/bhai-kya-kar-raha-hai-tu-ashneer-grover.gif)](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+## Bonus Tip
+If you want to add this project like a software in your PC then you can do so by creating a shortcut of the `launch.bat` file and then moving it to `C:\Users\{YouCoolUsername}\AppData\Microsoft\Windows\Start Menu\Programs\` folder. This will make the program appear in Start Menu.
+
+Linux Users make a .desktop file and move it to `/usr/share/applications/` folder (I hope you know how to do that. You use Linux bruh).
+
+Mac Users ... Cry in a corner[.](https://sveinbjorn.org/platypus)
+
+## Contributions
+
+Hell yeah! You can contribute to this project by adding new features or fixing bugs. Just fork the repo and make a PR.
