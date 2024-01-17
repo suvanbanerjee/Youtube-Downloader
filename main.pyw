@@ -38,13 +38,14 @@ def main():
             url = values[1]
             path = values["-PATH-"]
             Path(path).mkdir(parents=True, exist_ok=True)
+            sg.popup_no_wait("Please wait while we try to download your video")
             flag = download(url, path)
             if flag == -1:
                 sg.popup_error("Error in downloading!")
             elif flag == 0:
-                sg.popup_error("Video not found!")
-            else:
                 sg.popup("Download complete!")
+            else:
+                sg.popup_error("Internal error in Code!")
     window.close()
 
 if __name__ == "__main__":
