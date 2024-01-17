@@ -1,5 +1,5 @@
 # YouTube Downloader
-[![yt](https://www.freeiconspng.com/uploads/elegant-youtube-logo-12.png)](https://www.youtube.com)
+[![yt](logo.png)](https://www.youtube.com)
 
 Hello there just a simple project that can download videos or playlist from YouTube. This project is made using Python.
 
