@@ -1,6 +1,7 @@
 import PySimpleGUI as sg
 from pathlib import Path
-from youtube import download
+import pytube
+import re
 
 sg.LOOK_AND_FEEL_TABLE['YouTube'] = \
 {'BACKGROUND': '#FFFFFF', 
@@ -25,6 +26,28 @@ layout = [
     [sg.Text("\n")],
     [sg.Button("Download",size=(10,2),auto_size_button= True), sg.Button("Cancel",size=(10,2),auto_size_button= True)]
 ]
+
+
+def download(url, path, quality):
+    playlist=r"^(https?\:\/\/)?(www\.youtube\.com|youtu\.?be)\/playlist(.*)$"
+    video=r"^(https?\:\/\/)?(www\.youtube\.com|youtu\.?be)\/(watch|shorts)(.*)$"
+    if re.match(playlist, url):
+        playlist = pytube.Playlist(url)
+        for video in playlist.videos:
+            if quality == "High":
+                video.streams.get_highest_resolution().download(path)
+            elif quality == "Low":
+                video.streams.get_lowest_resolution().download(path)
+            return 0
+    elif re.match(video, url):
+        video = pytube.YouTube(url)
+        if quality == "High":
+            video.streams.get_highest_resolution().download(path)
+        if quality == "Low":
+            video.streams.get_lowest_resolution().download(path)
+        return 0
+    else:
+        return -1
 
 def main():
     window = sg.Window("YouTube Downloader", layout)
