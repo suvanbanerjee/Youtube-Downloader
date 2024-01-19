@@ -34,18 +34,14 @@ def download(url, path, quality):
     if re.match(playlist, url):
         playlist = pytube.Playlist(url)
         for video in playlist.videos:
-            if quality == "High":
-                video.streams.get_highest_resolution().download(path)
-            elif quality == "Low":
-                video.streams.get_lowest_resolution().download(path)
-            return 0
-    elif re.match(video, url):
-        video = pytube.YouTube(url)
-        if quality == "High":
-            video.streams.get_highest_resolution().download(path)
-        if quality == "Low":
-            video.streams.get_lowest_resolution().download(path)
+            sg.popup_no_wait("Video no " + str(playlist.video_urls.index(url)+1) + " downloding...")
+            video.streams.first().download(path)
         return 0
+        # if quality == "High":
+        #     video.streams.get_highest_resolution().download(path)
+        # if quality == "Low":
+        #     video.streams.get_lowest_resolution().download(path)
+        # return 0
     else:
         return -1
 
@@ -56,7 +52,7 @@ def main():
 
         if event == sg.WIN_CLOSED or event == "Cancel":
             break
-        elif not(values) or values["-PATH-"] == "":
+        elif not(values) or values["-PATH-"]  == "" or values["-COMBO-"] == "":
                 sg.popup_ok("Please enter a valid URL and path!")
                 continue
         elif event == "Download":
