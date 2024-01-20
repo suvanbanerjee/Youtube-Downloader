@@ -16,12 +16,12 @@ sg.LOOK_AND_FEEL_TABLE['YouTube'] = \
 sg.theme('YouTube') 
 
 layout = [
-    [sg.Image(str(Path(__file__).parent.joinpath("logo.png")), size=(400, 200),subsample=5,)],
-    [sg.Text("Enter the URL of the YouTube video/playlist you want to Download", font=("Impact", 12))],
+    [sg.Column([[sg.Image(str(Path(__file__).parent.joinpath("logo.png")), size=(400, 200),subsample=5,)]], justification='center')],
+    [sg.Text("Enter the URL of the YouTube video/playlist you want to Download", font=("Arial", 12))],
     [sg.InputText()],
-    [sg.Text("Select Video Quality", font=("Impact",12))],
+    [sg.Text("Select Video Quality", font=("Arial",12))],
     [sg.Combo(["High", "Low"], size=(10, 10), key='-COMBO-')],
-    [sg.Text("Select the folder where you want to save the video", font=("Impact", 12))],
+    [sg.Text("Select the folder where you want to save the video", font=("Arial", 12))],
     [sg.InputText(key="-PATH-"), sg.FolderBrowse()],
     [sg.Text("\n")],
     [sg.Button("Download",size=(10,2),auto_size_button= True), sg.Button("Cancel",size=(10,2),auto_size_button= True)]
@@ -31,17 +31,21 @@ layout = [
 def download(url, path, quality):
     playlist=r"^(https?\:\/\/)?(www\.youtube\.com|youtu\.?be)\/playlist(.*)$"
     video=r"^(https?\:\/\/)?(www\.youtube\.com|youtu\.?be)\/(watch|shorts)(.*)$"
-    if re.match(playlist, url):
+    if re.match(playlist, url) or 'list=' in url:
         playlist = pytube.Playlist(url)
         for video in playlist.videos:
-            sg.popup_no_wait("Video no " + str(playlist.video_urls.index(url)+1) + " downloding...")
-            video.streams.first().download(path)
+            if quality == "High":
+                video.streams.get_highest_resolution().download(path)
+            if quality == "Low":
+                video.streams.get_lowest_resolution().download(path)
         return 0
-        # if quality == "High":
-        #     video.streams.get_highest_resolution().download(path)
-        # if quality == "Low":
-        #     video.streams.get_lowest_resolution().download(path)
-        # return 0
+    elif re.match(video, url):
+        video = pytube.YouTube(url)
+        if quality == "High":
+            video.streams.get_highest_resolution().download(path)
+        if quality == "Low":
+            video.streams.get_lowest_resolution().download(path)
+        return 0
     else:
         return -1
 
